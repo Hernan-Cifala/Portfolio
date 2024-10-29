@@ -8,7 +8,7 @@ const About = () => {
       <div className="about-me-content">
         {/* Profile Image Column */}
         <div className="about-me-image">
-          <img src="/images/Foto-CV.jpg" alt="Hernán Cifalá" />
+          <img src="images/Foto-CV.jpg" alt="Hernán Cifalá" />
           <p className="about-me-name">Hernán Cifalá | Developer</p>
           <div className="about-me-icons">
             <a href="mailto:your-email@example.com"><FaEnvelope /></a>

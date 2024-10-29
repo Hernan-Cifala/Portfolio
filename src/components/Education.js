@@ -17,25 +17,25 @@ const Education = () => {
 
   const certifications = {
     'Prompt Engineering': [
-      { title: 'ChatGPT Prompt Engineering for Developers', img: '/images/ChatGPT Prompt Engineering for Developers Certificate.jpg' }
+      { title: 'ChatGPT Prompt Engineering for Developers', img: 'images/ChatGPT Prompt Engineering for Developers Certificate.jpg' }
     ],
     'Wix': [
-      { title: 'Wix Velo Certification', img: '/images/Wix Velo Certification.png' },
-      { title: 'Wix Accessibility Certification', img: '/images/Wix Accessibility Certification.png' }
+      { title: 'Wix Velo Certification', img: 'images/Wix Velo Certification.png' },
+      { title: 'Wix Accessibility Certification', img: 'images/Wix Accessibility Certification.png' }
     ],
     'Full Stack': [
-      { title: 'Codo a Codo', img: '/images/Codo a Codo Certificate.jpg' },
-      { title: 'Argentina Programa', img: '/images/Argentina Programa Certificate.jpg' }
+      { title: 'Codo a Codo', img: 'images/Codo a Codo Certificate.jpg' },
+      { title: 'Argentina Programa', img: 'images/Argentina Programa Certificate.jpg' }
     ],
     'Programming': [
-      { title: 'Responsive Web Design', img: '/images/Freecodecamp Responsive Web Design Certificate.jpg' },
-      { title: 'JavaScript Algorithms and Data Structures', img: '/images/Freecodecamp JavaScript Algorithms and Data Structures Certificate.jpg' }
+      { title: 'Responsive Web Design', img: 'images/Freecodecamp Responsive Web Design Certificate.jpg' },
+      { title: 'JavaScript Algorithms and Data Structures', img: 'images/Freecodecamp JavaScript Algorithms and Data Structures Certificate.jpg' }
     ],
     'Data Analytics': [
-      { title: 'Google Data Analytics Professional Certificate', img: '/images/Google Data Analytics Professional Certificate.jpg' }
+      { title: 'Google Data Analytics Professional Certificate', img: 'images/Google Data Analytics Professional Certificate.jpg' }
     ],
     'Language': [
-      { title: 'First Certificate Exam in English', img: '/images/First Certificate Exam in English.jpg' }
+      { title: 'First Certificate Exam in English', img: 'images/First Certificate Exam in English.jpg' }
     ]
   };
 
