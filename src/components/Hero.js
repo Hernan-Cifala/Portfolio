@@ -8,7 +8,7 @@ const Hero = () => {
         <source src="videos/Hero Video.mp4" type="video/mp4" />
       </video>
       <div className="hero-content">
-        <h1 className="hero-title">Welcome</h1>
+        <h1 className="hero-title">Blending Creativity with Technology to Empower Growth and Innovation</h1>
         {/* Draggable Block */}
         <Draggable>
           <div className="draggable-block">&lt;/&gt;</div>
