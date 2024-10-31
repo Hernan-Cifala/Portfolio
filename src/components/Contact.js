@@ -7,7 +7,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 const Contact = () => {
   return (
     <section className="contact" id='contact'>
-      <h1>Contact Me</h1>
+      <h2>Contact Me</h2>
       <div className="contact-grid">
         <div className="contact-item">
           <a href="mailto:hernan.cifala@gmail.com" target="_blank" rel="noopener noreferrer">

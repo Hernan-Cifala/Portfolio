@@ -4,7 +4,7 @@ import React from 'react';
 const Skills = () => {
   return (
     <section className="skills">
-  <h1>Soft Skills</h1>
+  <h2>Soft Skills</h2>
   <div className="skills-grid">
     <div className="skill-box">
       <h3>Resourcefulness</h3>

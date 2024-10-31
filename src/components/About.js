@@ -4,7 +4,7 @@ import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
 const About = () => {
   return (
     <section className="about-me" id='about'>
-      <h1>About Me</h1>
+      <h2>About Me</h2>
       <div className="about-me-content">
         {/* Profile Image Column */}
         <div className="about-me-image">

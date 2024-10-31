@@ -6,7 +6,7 @@ import { SiWix, SiMake, SiChatbot, SiOpenai } from "react-icons/si"; // Addition
 const Tools = () => {
   return (
     <section className="tools">
-      <h1>Hard Skills</h1>
+      <h2>Hard Skills</h2>
       <div className="tools-grid">
         {/* LowCode Column */}
         <div className="tools-column">

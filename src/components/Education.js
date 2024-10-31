@@ -59,7 +59,7 @@ const Education = () => {
 
   return (
     <section className="education">
-      <h1>Education</h1>
+      <h2>Education</h2>
       <div className="category-menu">
         {categories.map(category => (
           <button
