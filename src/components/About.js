@@ -11,9 +11,9 @@ const About = () => {
           <img src="images/Foto-CV.jpg" alt="Hernán Cifalá" />
           <p className="about-me-name">Hernán Cifalá | Developer</p>
           <div className="about-me-icons">
-            <a href="mailto:your-email@example.com"><FaEnvelope /></a>
-            <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-            <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+            <a href="mailto:hernan.cifala@gmail.com" target="_blank" rel="noopener noreferrer"><FaEnvelope /></a>
+            <a href="https://www.linkedin.com/in/hernan-cifala/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+            <a href="https://github.com/Hernan-Cifala" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
           </div>
         </div>
 
@@ -21,7 +21,7 @@ const About = () => {
         <div className="about-me-text">
           <h3>Professional Development</h3>
         
-            <p>I am an analytical thinker with a strong technical background and a passion for development. My focus is on creating solutions for small and medium-sized businesses without the need for coding, driving growth and efficiency through digital projects.</p>
+            <p>I am an analytical thinker with a strong technical background and a passion for development. My focus is on creating solutions for small and medium-sized businesses using low-code platforms and prompt engineering, driving growth and efficiency through digital projects.</p>
 
             <p>I am passionate about technology, that set of tools that enables the fusion of creative thinking and technical approach, allowing us to create, share, and connect innovative ideas.</p>
 

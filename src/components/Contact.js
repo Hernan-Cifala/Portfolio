@@ -17,17 +17,17 @@ const Contact = () => {
         </div>
 
         <div className="contact-item">
-          <a href="https://linkedin.com/in/your-linkedin" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/hernan-cifala/" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faLinkedin} size="3x" />
           </a>
-          <p>Have a look at my LinkedIn profile and find out more about my growth.</p>
+          <p>Visit my LinkedIn profile and find out more about my journey and ongoing growth.</p>
         </div>
 
         <div className="contact-item">
-          <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Hernan-Cifala" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faGithub} size="3x" />
           </a>
-          <p>Inspect the projects that I have worked on and the code that makes ideas become reality.</p>
+          <p>Explore the projects that I have worked on and the code that makes ideas become reality.</p>
         </div>
       </div>
     </section>

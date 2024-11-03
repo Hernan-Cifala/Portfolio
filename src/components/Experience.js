@@ -10,9 +10,9 @@ const Experience = () => {
           <h3>Ssr. LowCode Developer</h3>
           <p><strong>Company:</strong> Metódica Digital</p>
           <p><strong>Type:</strong> Part-time Remote</p>
-          <p><strong>Duration:</strong> 2024-11-01 until today</p>
+          <p><strong>Duration:</strong> November 2023 – Present</p>
           <p>
-            <strong>Description:</strong> As a Semi-Senior LowCode Developer at Metódica, I specialize in building dynamic websites using Wix, automating workflows with Make, and developing intelligent chatbots with UChat, helping clients streamline processes and enhance user engagement.
+            <strong>Description:</strong> In my role as a Semi-Senior LowCode Developer at Metódica, I build dynamic websites with Wix, automate workflows using Make, and develop intelligent chatbots through UChat. My focus is on streamlining processes and enhancing user engagement, helping clients achieve digital transformation efficiently and effectively.
           </p>
         </div>
 
