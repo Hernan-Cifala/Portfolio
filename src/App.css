@@ -15,9 +15,7 @@
 }
 
 /* WHAT'S LEFT: 
-Responsive design
 Video Quality
-Site Content
 Update Linkedin (Título, Destacado, Experiencia, Aptitudes, Proyectos)
 Linkedin Post
 */
@@ -491,8 +489,8 @@ a:hover {
     border: none;
   }
   .education .tooltip .tooltip-text {
-    width: 80%;
-    bottom: -40%;
+    width: 100%;
+    bottom: -50%;
   }
 }
 
