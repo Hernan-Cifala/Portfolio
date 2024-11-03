@@ -14,13 +14,17 @@
   --font-size-h1: 3.5rem;
 }
 
-/* WHAT'S LEFT: 
-Video Quality
-Update Linkedin (Título, Destacado, Experiencia, Aptitudes, Proyectos)
-Linkedin Post
-*/
-
 /* Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -237,7 +241,7 @@ a:hover {
 /* Tablet */
 @media (max-width: 768px) {
   .hero-content {
-    width: 80%;
+    width: 90%;
   }
   .hero-title {
     font-size: 1.8rem;
@@ -446,6 +450,7 @@ a:hover {
 .certification-card img {
   max-width: 100%;
   margin: 0 auto;
+  margin-bottom: 1rem;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
@@ -477,7 +482,7 @@ a:hover {
 /* Tablet & Mobile */
 @media (max-width: 768px) {
   .certifications-slider .certification-card {
-    width: 100%;
+    max-width: 80%;
   }
   .category-menu {
     flex-direction: column;
@@ -490,7 +495,7 @@ a:hover {
   }
   .education .tooltip .tooltip-text {
     width: 100%;
-    bottom: -50%;
+    bottom: -20%;
   }
 }
 
@@ -626,7 +631,7 @@ a:hover {
 }
 
 .project-column {
-  width: 90%;
+  width: 100%;
   padding: 1.5rem;
   border: 1px solid var(--secondary-color);
   border-radius: 20px;
