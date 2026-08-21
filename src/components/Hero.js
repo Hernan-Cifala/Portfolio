@@ -20,7 +20,9 @@ const DraggableBlock = () => {
 const Hero = () => {
   return (
     <section className="hero-section sticky">
-      <video autoPlay loop muted className="hero-video">
+      {/* playsInline is required by Safari on iOS: without it the video does
+          not autoplay inline and the hero stays empty. */}
+      <video autoPlay loop muted playsInline className="hero-video">
         <source src="videos/Hero Video.mp4" type="video/mp4" />
       </video>
       <div className="hero-content">

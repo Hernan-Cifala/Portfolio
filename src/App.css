@@ -129,6 +129,22 @@ a:hover {
   color: var(--secondary-color);
 }
 
+/* Hamburger button: mobile only, hidden everywhere else */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  color: var(--font-color);
+  font-size: 1.5rem;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.nav-toggle:hover {
+  color: var(--secondary-color);
+}
+
 /* Tablet */
 @media (max-width: 768px) {
   .header {
@@ -145,14 +161,34 @@ a:hover {
 /* Mobile */
 @media (max-width: 480px) {
   .header {
-    flex-direction: column;
-    text-align: center;
+    text-align: left;
   }
   .header-left h1 {
     font-size: 1rem;
   }
+  .nav-toggle {
+    display: block;
+  }
+  /* Collapsed by default; the button toggles .open */
   .header-right nav ul {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0.5rem 0;
+    background-color: #0056b3;
+  }
+  .header-right nav ul.open {
+    display: flex;
+  }
+  .header-right nav ul li {
+    width: 100%;
+    padding: 0.75rem 0;
+    text-align: center;
   }
 }
 
@@ -163,6 +199,8 @@ a:hover {
   height: 100vh;
   overflow: hidden;
   z-index: 1;
+  /* The video is heavy: this keeps the hero from flashing white while it loads. */
+  background-color: var(--background-color);
 }
 
 .hero-video {
