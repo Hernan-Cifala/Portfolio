@@ -1,23 +1,45 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# --- dependencies ---
 /node_modules
 /.pnp
 .pnp.js
 
-# testing
+# --- testing ---
 /coverage
 
-# production
+# --- production ---
+# The build is published to gh-pages by `npm run deploy`; it is not versioned on master.
 /build
 
-# misc
+# --- secrets ---
+.env
+.env.*
+*.key
+*.pem
+service-account*.json
+credentials*.json
+
+# --- OS and tooling noise ---
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+~$*
+__pycache__/
+*.py[cod]
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# --- local working notes and tooling (not published) ---
+CLAUDE.md
+CONTEXT.md
+CHANGELOG.md
+*.local.md
+.claude/
+scripts/
+scratch/
+tmp/
