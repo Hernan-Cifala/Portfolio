@@ -12,8 +12,9 @@ const Projects = () => {
       item1: "• Leveraged AI for planning and design.",
       item2: "• Solved unique challenges beyond AI capabilities.",
       item3: "• Conducted comprehensive analysis of design and copy choices.",
-      link: "https://github.com/Hernan-Cifala/Portfolio",
-      link_text: "View the Code"
+      links: [
+        { url: "https://github.com/Hernan-Cifala/Portfolio", text: "View the Code" }
+      ]
     },
     LegacyPortfolio: {
       title: "Legacy Portfolio",
@@ -22,8 +23,10 @@ const Projects = () => {
       item1: "• Developed Front-End, Back-End, and Database components.",
       item2: "• Created both local and remote repositories.",
       item3: "• Integrated and deployed the project.",
-      link: "https://hernan-cifala-portfolio.web.app/portfolio",
-      link_text: "Visit the Site"
+      links: [
+        { url: "https://github.com/Hernan-Cifala/FrontEnd", text: "View the Front-End Code" },
+        { url: "https://github.com/Hernan-Cifala/BackEnd", text: "View the Back-End Code" }
+      ]
     },
     SalesConversion: {
       title: "Sales Conversion Optimization",
@@ -32,8 +35,9 @@ const Projects = () => {
       item1: "• Processed and organized data using Excel and SQLite.",
       item2: "• Analyzed and visualized results with R.",
       item3: "• Presented findings and recommendations using PowerPoint.",
-      link: "https://docs.google.com/presentation/d/e/2PACX-1vQi6UNHhQQOpr8hEIs0VIBx-JvT4fJ1dt4d8nBA8lBNjbRpzId4eUqAbQQ3cLXSaw/pub?start=false&loop=false&delayms=3000",
-      link_text: "Watch the Presentation"
+      links: [
+        { url: "https://docs.google.com/presentation/d/e/2PACX-1vQi6UNHhQQOpr8hEIs0VIBx-JvT4fJ1dt4d8nBA8lBNjbRpzId4eUqAbQQ3cLXSaw/pub?start=false&loop=false&delayms=3000", text: "Watch the Presentation" }
+      ]
     },
   };
 
@@ -45,7 +49,7 @@ const Projects = () => {
   const closeModal = () => setShowModal(false);
 
   return (
-    <section className="projects-section">
+    <section className="projects-section" id="projects">
       <h2 className="projects-title">Projects</h2>
       <div className="projects-grid">
         {Object.keys(projectDetails).map((projectKey) => (
@@ -77,9 +81,11 @@ const Projects = () => {
     <li>{currentProject?.item3}</li>
   </ul>
   <div className="modal-footer">
-  <a href={currentProject?.link} target="_blank" rel="noopener noreferrer" className="modal-link">
-  {currentProject?.link_text}
-  </a>
+  {currentProject?.links?.map((link) => (
+    <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="modal-link">
+      {link.text}
+    </a>
+  ))}
   <button onClick={closeModal} className="close-modal">Close</button>
   </div>
 </div>
