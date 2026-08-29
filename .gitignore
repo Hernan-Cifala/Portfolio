@@ -19,6 +19,15 @@
 *.pem
 service-account*.json
 credentials*.json
+# Matched by pattern, not by exact name: `serviceAccountKey.json` is camelCase with no hyphen,
+# so `service-account*.json` above does not cover it. Verified with `git check-ignore`.
+*serviceAccount*.json
+*adminsdk*.json
+*.p12
+*.pfx
+# Deliberate negation: a template with no values must ship, or nobody knows which variables
+# are required. The `.env.*` rule above would swallow it.
+!.env.example
 
 # --- OS and tooling noise ---
 .DS_Store
