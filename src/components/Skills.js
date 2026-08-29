@@ -30,14 +30,6 @@ const Skills = () => {
       <h3>Time-Management</h3>
       <p>Balancing multiple tasks and meeting deadlines is essential for productivity. I prioritize effectively to maintain high standards across all my projects, ensuring timely and quality results.</p>
     </div>
-        {/* <div className="connection-lines">
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="glowing-circle"></div> */}
       </div>
     </section>
   );
