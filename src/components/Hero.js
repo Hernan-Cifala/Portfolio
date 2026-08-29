@@ -12,7 +12,14 @@ const DraggableBlock = () => {
 
   return (
     <Draggable>
-      <div className={`draggable-block ${slideIn ? 'slide-in-right' : ''}`}>&lt;/&gt;</div>
+      {/* Decorative and mouse-only: hidden from assistive tech rather than
+          announced as a stray "</>" with no keyboard equivalent. */}
+      <div
+        className={`draggable-block ${slideIn ? 'slide-in-right' : ''}`}
+        aria-hidden="true"
+      >
+        &lt;/&gt;
+      </div>
     </Draggable>
   );
 };
@@ -22,7 +29,7 @@ const Hero = () => {
     <section className="hero-section sticky">
       {/* playsInline is required by Safari on iOS: without it the video does
           not autoplay inline and the hero stays empty. */}
-      <video autoPlay loop muted playsInline className="hero-video">
+      <video autoPlay loop muted playsInline aria-hidden="true" tabIndex={-1} className="hero-video">
         <source src="videos/Hero Video.mp4" type="video/mp4" />
       </video>
       <div className="hero-content">

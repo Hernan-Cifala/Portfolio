@@ -10,10 +10,12 @@ const About = () => {
         <div className="about-me-image">
           <img src="images/Foto-CV.jpg" alt="Hernán Cifalá" />
           <p className="about-me-name">Hernán Cifalá | Developer</p>
+          {/* The icons are the whole link content, so each one needs an explicit
+              accessible name: an <svg> alone leaves the link unnamed. */}
           <div className="about-me-icons">
-            <a href="mailto:hernan.cifala@gmail.com" target="_blank" rel="noopener noreferrer"><FaEnvelope /></a>
-            <a href="https://www.linkedin.com/in/hernan-cifala/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-            <a href="https://github.com/Hernan-Cifala" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+            <a href="mailto:hernan.cifala@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Hernán Cifalá"><FaEnvelope /></a>
+            <a href="https://www.linkedin.com/in/hernan-cifala/" target="_blank" rel="noopener noreferrer" aria-label="Hernán Cifalá on LinkedIn"><FaLinkedin /></a>
+            <a href="https://github.com/Hernan-Cifala" target="_blank" rel="noopener noreferrer" aria-label="Hernán Cifalá on GitHub"><FaGithub /></a>
           </div>
         </div>
 

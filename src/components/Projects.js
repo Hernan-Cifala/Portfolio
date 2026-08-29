@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 const Projects = () => {
   const [showModal, setShowModal] = useState(false);
   const [currentProject, setCurrentProject] = useState(null);
+  const modalRef = useRef(null);
+  // Whatever had focus before the modal opened, so it can be handed back on close.
+  const lastFocusedRef = useRef(null);
 
   const projectDetails = {
     Portfolio: {
@@ -41,12 +44,60 @@ const Projects = () => {
     },
   };
 
-  const openModal = (projectKey) => {
+  // The trigger is captured from the event rather than read off document.activeElement:
+  // a pointer click does not necessarily focus the button first, and then focus would
+  // be handed back to <body> on close instead of to the card the user came from.
+  const openModal = (projectKey, trigger) => {
+    lastFocusedRef.current = trigger;
     setCurrentProject(projectDetails[projectKey]);
     setShowModal(true);
   };
 
-  const closeModal = () => setShowModal(false);
+  const closeModal = useCallback(() => setShowModal(false), []);
+
+  // Escape to close, and Tab cycles inside the dialog instead of walking the page
+  // behind it. Without the trap, a keyboard user tabs out of an open modal and
+  // lands on content that is visually covered by the overlay.
+  useEffect(() => {
+    if (!showModal) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeModal();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const focusables = modalRef.current?.querySelectorAll(
+        'a[href], button, [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusables || focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+
+    // The page behind the overlay must not scroll while the dialog is open.
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    modalRef.current?.focus();
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousOverflow;
+      lastFocusedRef.current?.focus();
+    };
+  }, [showModal, closeModal]);
 
   return (
     <section className="projects-section" id="projects">
@@ -54,14 +105,22 @@ const Projects = () => {
       <div className="projects-grid">
         {Object.keys(projectDetails).map((projectKey) => (
           <div key={projectKey} className="project-column">
-            <h2>{projectDetails[projectKey].title}</h2>
+            <h3>{projectDetails[projectKey].title}</h3>
             <p>{projectDetails[projectKey].short_description}</p>
             <ul>
               <li>{projectDetails[projectKey].item1}</li>
               <li>{projectDetails[projectKey].item2}</li>
               <li>{projectDetails[projectKey].item3}</li>
             </ul>
-            <button onClick={() => openModal(projectKey)} className="read-more-button">Read more...</button>
+            {/* Every card renders the same visible label, so the accessible name
+                carries the project title to keep the buttons distinguishable. */}
+            <button
+              onClick={(e) => openModal(projectKey, e.currentTarget)}
+              className="read-more-button"
+              aria-label={`Read more about ${projectDetails[projectKey].title}`}
+            >
+              Read more...
+            </button>
           </div>
         ))}
       </div>
@@ -69,27 +128,34 @@ const Projects = () => {
       {/* Modal */}
       {showModal && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-  <h3 className="modal-title">{currentProject?.title}</h3>
-  <div className="modal-border"></div>
-  <h4 className="modal-subtitle">{currentProject?.short_description}</h4>
-  <p className="modal-paragraph">{currentProject?.description}</p>
-  <h4 className='modal-list-title'>Accomplishments:</h4>
-  <ul className="modal-list">
-    <li>{currentProject?.item1}</li>
-    <li>{currentProject?.item2}</li>
-    <li>{currentProject?.item3}</li>
-  </ul>
-  <div className="modal-footer">
-  {currentProject?.links?.map((link) => (
-    <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="modal-link">
-      {link.text}
-    </a>
-  ))}
-  <button onClick={closeModal} className="close-modal">Close</button>
-  </div>
-</div>
-
+          <div
+            className="modal-content"
+            onClick={(e) => e.stopPropagation()}
+            ref={modalRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
+            tabIndex={-1}
+          >
+            <h3 className="modal-title" id="project-modal-title">{currentProject?.title}</h3>
+            <div className="modal-border"></div>
+            <h4 className="modal-subtitle">{currentProject?.short_description}</h4>
+            <p className="modal-paragraph">{currentProject?.description}</p>
+            <h4 className='modal-list-title'>Accomplishments:</h4>
+            <ul className="modal-list">
+              <li>{currentProject?.item1}</li>
+              <li>{currentProject?.item2}</li>
+              <li>{currentProject?.item3}</li>
+            </ul>
+            <div className="modal-footer">
+              {currentProject?.links?.map((link) => (
+                <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="modal-link">
+                  {link.text}
+                </a>
+              ))}
+              <button onClick={closeModal} className="close-modal">Close</button>
+            </div>
+          </div>
         </div>
       )}
     </section>

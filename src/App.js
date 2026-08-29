@@ -15,14 +15,18 @@ function App() {
   return (
     <div>
       <Header />
-      <Hero />
-      <About />
-      <Experience />
-      <Education />
-      <Tools />
-      <Skills />
-      <Projects />
-      <Contact />
+      {/* Everything below the header is the page content: without a main
+          landmark, screen reader users have no way to skip the navigation. */}
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Education />
+        <Tools />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
     </div>
   );
 }
