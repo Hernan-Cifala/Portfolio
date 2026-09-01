@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 
+// Rendered outside <main> as the page footer: a <footer> only counts as the
+// contentinfo landmark when it is a direct child of body, not nested in main.
 const Contact = () => {
   return (
-    <section className="contact" id='contact'>
+    <footer className="contact" id='contact'>
       <h2>Contact Me</h2>
       <div className="contact-grid">
         {/* Each link's only content is an icon, so the accessible name has to be
@@ -32,7 +34,7 @@ const Contact = () => {
           <p>Explore the projects that I have worked on and the code that makes ideas become reality.</p>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 

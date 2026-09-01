@@ -8,7 +8,10 @@ const About = () => {
       <div className="about-me-content">
         {/* Profile Image Column */}
         <div className="about-me-image">
-          <img src="images/Foto-CV.jpg" alt="Hernán Cifalá" />
+          {/* Intrinsic dimensions declared so the browser reserves the space
+              before the file arrives: without them the text below shifts when
+              the image lands (CLS). The CSS still controls the rendered size. */}
+          <img src="images/Foto-CV.jpg" alt="Hernán Cifalá" width="288" height="288" loading="lazy" />
           <p className="about-me-name">Hernán Cifalá | Developer</p>
           {/* The icons are the whole link content, so each one needs an explicit
               accessible name: an <svg> alone leaves the link unnamed. */}

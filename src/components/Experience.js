@@ -18,7 +18,7 @@ const Experience = () => {
 
         {/* Company Image Column */}
         <div className="experience-image">
-          <img src="images/Logo Metódica.webp" alt="Metódica Digital" />
+          <img src="images/Logo Metódica.webp" alt="Metódica Digital" width="262" height="70" loading="lazy" />
           <p className="company-name">Metódica Digital</p>
         </div>
       </div>

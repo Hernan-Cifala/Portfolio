@@ -14,10 +14,14 @@ import './App.css';  // Imported globally in App.js
 function App() {
   return (
     <div>
+      {/* First focusable element in the DOM on purpose: it lets keyboard users
+          jump past the nav. The target needs tabIndex -1 so the jump moves the
+          focus and not just the scroll position. */}
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <Header />
       {/* Everything below the header is the page content: without a main
           landmark, screen reader users have no way to skip the navigation. */}
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
         <Experience />
@@ -25,8 +29,10 @@ function App() {
         <Tools />
         <Skills />
         <Projects />
-        <Contact />
       </main>
+      {/* Outside <main> on purpose: Contact renders the page <footer>, and a
+          footer nested inside main is not the contentinfo landmark. */}
+      <Contact />
     </div>
   );
 }

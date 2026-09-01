@@ -49,6 +49,40 @@ a:hover {
   color: var(--secondary-color);
 }
 
+/* FOCUS */
+/* The browser default computes to a near-black outline, which is all but
+   invisible on this dark background. :focus-visible and not :focus so it only
+   shows for keyboard users, and outline-offset so it clears the element. */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--font-color);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* MOTION */
+/* "Reduce motion" is an OS-level setting used by people who get motion sickness
+   or migraines from animation. Nothing here changes for anyone who has not
+   turned it on. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Images now declare their intrinsic width/height, which the browser turns into
+   an aspect-ratio. height:auto keeps the CSS width in charge so they are not
+   stretched to the attribute height. */
+img {
+  height: auto;
+}
+
 .tooltip .tooltip-text {
   visibility: hidden;
   background-color: black;
@@ -81,6 +115,28 @@ a:hover {
 .tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+
+/* SKIP LINK */
+/* Off screen until it takes focus, so it is the first stop for keyboard users
+   and invisible to everyone else. It has to outrank the fixed header's z-index,
+   or it would slide out behind it. */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  z-index: 20;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--background-color);
+  color: var(--font-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 0 0 5px 5px;
+  transition: transform 0.2s;
+}
+
+.skip-link:focus {
+  transform: translate(-50%, 0);
 }
 
 /* HEADER */
@@ -439,12 +495,18 @@ a:hover {
 }
 
 /* EDUCATION */
+/* overflow-x: clip contains the slider's prev/next arrows, which react-slick
+   positions absolutely outside the track: on narrow viewports they pushed the
+   document wider than the screen (403px on a 390px phone) and produced a
+   sideways rubber-band scroll. clip and not hidden, because hidden would make
+   this a scroll container and break the sticky positioning above. */
 .education {
   position: sticky;
   padding: 3%;
   text-align: center;
   z-index: 2;
   background-color: var(--background-color);
+  overflow-x: clip;
 }
 
 .category-menu {
