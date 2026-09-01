@@ -16,9 +16,14 @@ const About = () => {
           {/* The icons are the whole link content, so each one needs an explicit
               accessible name: an <svg> alone leaves the link unnamed. */}
           <div className="about-me-icons">
-            <a href="mailto:hernan.cifala@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Hernán Cifalá"><FaEnvelope /></a>
-            <a href="https://www.linkedin.com/in/hernan-cifala/" target="_blank" rel="noopener noreferrer" aria-label="Hernán Cifalá on LinkedIn"><FaLinkedin /></a>
-            <a href="https://github.com/Hernan-Cifala" target="_blank" rel="noopener noreferrer" aria-label="Hernán Cifalá on GitHub"><FaGithub /></a>
+            {/* The accessible name says where the link goes because these open
+                away from the page: sighted users get that from the new tab
+                appearing, and without it in the name nobody else does. The
+                mailto says "email app" and not "new tab", which is what it
+                actually does. */}
+            <a href="mailto:hernan.cifala@gmail.com" aria-label="Email Hernán Cifalá (opens your email app)"><FaEnvelope /></a>
+            <a href="https://www.linkedin.com/in/hernan-cifala/" target="_blank" rel="noopener noreferrer" aria-label="Hernán Cifalá on LinkedIn (opens in a new tab)"><FaLinkedin /></a>
+            <a href="https://github.com/Hernan-Cifala" target="_blank" rel="noopener noreferrer" aria-label="Hernán Cifalá on GitHub (opens in a new tab)"><FaGithub /></a>
           </div>
         </div>
 

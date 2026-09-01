@@ -149,7 +149,11 @@ const Projects = () => {
             </ul>
             <div className="modal-footer">
               {currentProject?.links?.map((link) => (
-                <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="modal-link">
+                // aria-label repeats the visible text on purpose: it overrides
+                // the link's name, so dropping it would lose "View the Back-End
+                // Code" and leave only the warning.
+                <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="modal-link"
+                   aria-label={`${link.text} (opens in a new tab)`}>
                   {link.text}
                 </a>
               ))}
