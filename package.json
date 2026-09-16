@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "cross-env GENERATE_SOURCEMAP=false npm run build",
+    "check-deploy": "node -e \"const git = (c) => require('child_process').execSync('git ' + c).toString().trim(); const branch = git('branch --show-current'); if (branch !== 'master') { console.error('Deploy blocked: on branch ' + branch + ', deploys only go out from master.'); process.exit(1); } if (git('status --porcelain')) { console.error('Deploy blocked: uncommitted changes would be published without being in the repo.'); process.exit(1); }\"",
+    "predeploy": "npm run check-deploy && cross-env GENERATE_SOURCEMAP=false npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
